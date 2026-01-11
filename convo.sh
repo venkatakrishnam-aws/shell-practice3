@@ -1,7 +1,9 @@
 #!/bin/bash
 
+$person1="Modi"
+$person2="Putin"
 
-echo "Modi::Hello Putin! How are you?"
-echo "putin::Hey Modi thanks for asking. I'm doing well!"
-echo "Putin::Hope you are doing well modi?"
+echo "::Hello $person2 ! How are you?"
+echo "$person2::Hey $person1 thanks for asking. I'm doing well!"
+echo "$person2::Hope you are doing well $person1?"
 
