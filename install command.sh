@@ -11,4 +11,11 @@ fi
 
 sudo apt install mysql-server
 
+if [ $? -eq 0 ]; then
+    echo "MySQL server installed successfully."
+else
+    echo "Failed to install MySQL server."
+    exit 1
+fi
+
 
