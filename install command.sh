@@ -8,7 +8,7 @@ else
     echo "You are not root."
 fi
 
-dnf install mysql-server -y
+sudo apt install mysql-server
 systemctl start mysqld
 systemctl enable mysqld
 
