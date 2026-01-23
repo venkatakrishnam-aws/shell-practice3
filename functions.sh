@@ -29,6 +29,6 @@ install_package() {
 }
 
 # Check and install packages
-install_package apachetomcat9
+install_package apache2
 
 
