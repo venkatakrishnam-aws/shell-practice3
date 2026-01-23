@@ -15,15 +15,16 @@ apt list --installed | grep mysql-server &> /dev/null
     exit 0
     else
     echo "MySQL server is not installed. Proceeding with installation."
- fi
+fi
 
 sudo apt install mysql-server
 
-if [ $? -eq 0 ]; then
-    echo "MySQL server installed successfully."
-else
-    echo "Failed to install MySQL server."
+if [ $? -ne 0 ]; then
+    echo "MySQL server not installed, going to install it."
     exit 1
+else
+    echo "MySQLerver is installed successfully!."
+    exit 0
 fi
 
 
