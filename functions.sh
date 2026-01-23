@@ -2,14 +2,14 @@
 
 USERID=$(id -u)
 if [ $USERID -ne 0 ]; then
-    echo "You are not a root user. please run the script with root access."
+    echo "You are not a root user. Please run the script with root access."
     exit 1
 else
-    echo "You are a root user hence proceeding with the installation."
+    echo "You are a root user, proceeding with installation."
 fi
 
 validate_installation() {
-     if [ $1 -ne 0 ]; then
+    if [ $1 -ne 0 ]; then
         echo "$2 failed to install."
         exit 1
     else
@@ -17,34 +17,18 @@ validate_installation() {
     fi
 }
 
-
-apt list --installed mysql-server
-
-    if [ $? -ne 0 ]; then
-        echo "$1 was not installed and now we are proceeding with the installation of $1."
-        apt install $1 -y
-        validate=$? "$1 installation"
-        exit $validate
+install_package() {
+    PACKAGE=$1
+    if ! dpkg -l | grep -q "^ii  $PACKAGE "; then
+        echo "$PACKAGE was not installed. Proceeding with installation..."
+        apt install -y $PACKAGE
+        validate_installation $? "$PACKAGE"
     else
-        echo "$1 installed already."
+        echo "$PACKAGE is already installed."
     fi
-apt list --installed nginx
+}
 
-    if [ $? -ne 0 ]; then
-        echo "$1 was not installed and now we are proceeding with the installation of $1."
-        apt install $1 -y
-        validate=$? "$1 installation"
-        exit $validate
-    else
-        echo "$1 installed already."
-    fi
-apt list --installed python3-pip
-    if [ $? -ne 0 ]; then
-        echo "$1 was not installed and now we are proceeding with the installation of $1."
-        apt install $1 -y
-        validate=$? "$1 installation"
-        exit $validate
-    else
-        echo "$1 installed already."
-    fi
-
+# Check and install packages
+install_package mysql-server
+install_package nginx
+install_package python3-pip
