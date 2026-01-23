@@ -29,6 +29,6 @@ install_package() {
 }
 
 # Check and install packages
-install_package mysql-server
-install_package nginx
-install_package python3-pip
+install_package apachetomcat9
+
+
