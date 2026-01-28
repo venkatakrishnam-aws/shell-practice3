@@ -25,3 +25,4 @@ validate_installation() {
     else
         echo -e "$G $2 installed successfully. $NC"  &&>> /tmp/shell-script/logs.txt
     fi  
+}
