@@ -6,7 +6,7 @@ script_name=$(echo $0 | cut -d '.' -f1)
 log_file="$logs_folder/$script_name.log"   
 
 mkdir -p $logs_folder
-echo "script started at $(date)" : | tee -a $log_file
+echo "script started at: $(date)"  | tee -a $log_file
 if [ $USERID -ne 0 ]; then
     echo "You are not a root user. please run the script with root access."  | tee -a $log_file
     exit 1
