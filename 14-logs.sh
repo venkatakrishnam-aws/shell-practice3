@@ -12,7 +12,8 @@ if [ $USERID -ne 0 ]; then
     exit 1
 else
     echo "You are a root user hence proceeding with the installation."   | tee -a $log_file
-fi  
+fi
+  
 validate_installation() {
     if [ $1 -ne 0 ]; then
         echo "$2 failed to install."  | tee -a $log_file
