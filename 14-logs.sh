@@ -1,9 +1,9 @@
 #!/bin/bash
 
 USERID=$(id -u)
-logs_folder="/var/log/shellscript-logs"    /* Corrected folder name to match script purpose */
-script_name=$(echo $0 | cut -d '.' -f1)    /* Corrected to use $0 for script name */
-log_file="$logs_folder/$script_name.log"   /* Corrected date format */
+logs_folder="/var/log/shellscript-logs"    
+script_name=$(echo $0 | cut -d '.' -f1)    
+log_file="$logs_folder/$script_name.log"   
 
 mkdir -p $logs_folder
 echo "script started at $(date)" : | tee -a $log_file
