@@ -38,7 +38,7 @@ install_package mysql-server
 install_package php
 install_package curl
 
-echo "script ended at $(date)" : &>> | tee -a $log_file $log_file $log_file
+echo "script ended at $(date)" : | tee -a $log_file    
 
 
 
