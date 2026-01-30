@@ -4,6 +4,7 @@ USERID=$(id -u)
 logs_folder="/var/log/shellscript-logs"    /* Corrected folder name to match script purpose */
 script_name=$(echo $0 | cut -d '.' -f1)    /* Corrected to use $0 for script name */
 log_file="$logs_folder/$script_name.log"   /* Corrected date format */
+
 mkdir -p $logs_folder
 echo "script started at $(date)" : | tee -a $log_file
 if [ $USERID -ne 0 ]; then
@@ -38,7 +39,7 @@ install_package mysql-server
 install_package php
 install_package curl
 
-echo "script ended at $(date)" : | tee -a $log_file    
+echo "script ended at: $(date)"  | tee -a $log_file    
 
 
 
