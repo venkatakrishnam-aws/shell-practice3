@@ -1,20 +1,17 @@
 #!/bin/bash
 
 USERID=$(id -u)
-
 logs_folder="/var/log/shellscript-logs"    /* Corrected folder name to match script purpose */
 script_name=$(echo $0 | cut -d '.' -f1)    /* Corrected to use $0 for script name */
 log_file="$logs_folder/$script_name.log"   /* Corrected date format */
 mkdir -p $logs_folder
 echo "script started at $(date)" : &>> $log_file
-
 if [ $USERID -ne 0 ]; then
     echo "You are not a root user. please run the script with root access."  &>> $log_file
     exit 1
 else
     echo "You are a root user hence proceeding with the installation."   &>> $log_file
 fi  
-
 validate_installation() {
     if [ $1 -ne 0 ]; then
         echo "$2 failed to install."  &>> $log_file
