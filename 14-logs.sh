@@ -41,6 +41,9 @@ install_package php
 install_package curl
 install_package wget
 install_package git
+install_package python3
+install_package python3-pip
+
 
 echo "script ended at: $(date)"  | tee -a $log_file    
 
