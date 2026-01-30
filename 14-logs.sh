@@ -13,7 +13,7 @@ if [ $USERID -ne 0 ]; then
 else
     echo "You are a root user hence proceeding with the installation."   | tee -a $log_file
 fi
-  
+
 validate_installation() {
     if [ $1 -ne 0 ]; then
         echo "$2 failed to install."  | tee -a $log_file
@@ -36,9 +36,11 @@ install_package() {
 
 # Check and install packages
 install_package apache2
-install_package mysql-server
+install_package mysql-server            
 install_package php
 install_package curl
+install_package wget
+install_package git
 
 echo "script ended at: $(date)"  | tee -a $log_file    
 
